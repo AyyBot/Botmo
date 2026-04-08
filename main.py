@@ -5,7 +5,8 @@ import threading
 from flask import Flask
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
-
+import telegram.ext._updater
+telegram.ext._updater.Updater.__polling_cleanup_cb = None  # workaround
 # -------------------- CẤU HÌNH --------------------
 TOKEN = "8774776432:AAEtoHLJahJpdBtZ7xCDg2R3VVlsnNYSnBA"  # 👈 Giữ nguyên token của bạn
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
